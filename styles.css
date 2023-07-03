@@ -421,63 +421,55 @@ header {
     flex-direction: column;
     align-items: center;
 }
-
-/*Contact Form*/
-form{
+/*Contact btn*/
+#contact{
 	display: flex;
-	justify-content: center;
-	flex-flow: column;
-	
-}
-#contact {
-  padding: 20vh;
-  background-color: #f5f5f5;
+    flex-direction: column;
+    align-items: center;
+	padding:5vh 5vh;
+	height:50vh;
 }
 
-.contact-form {
-  max-width: 33vh;
-  margin: 4vh auto;
-  
+#toggleEmailBtn {
+
 }
 
-.contact-form h2 {
-  font-size: 6vh;
-  margin-bottom: 2vh;
-  text-align: center;
-  color:#ffffff;
+#toggleEmailBtn.reveal {
+
 }
 
-.contact-form form input,
-.contact-form form textarea {
-  width: 100%;
-  padding: 2vh;
-  margin-bottom: 2vh;
-  border: 0.5vh solid #ccc;
-  border-radius: 2vh;
+#email {
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
 }
 
-.contact-form form button {
-  padding: 2vh 4vh;
-  border: none;
-  border-radius: 2vh;
-  cursor: url('media/emoji-cursor.png'), auto;
-  background-color: #876387;
-  color: #ffffff;
-  border-radius: 2vh;
-  transition: background-color 0.3s ease;
+.encoded-email {
+  color: inherit;
 }
 
-.contact-form form button:hover {
-   background-color: #000000;
+/*label*/
+#toggleEmailBtn {
 }
-#success-message{
-font-size: 5vh;
-    display: block;
-    text-align: center;
-	}
 
+#toggleEmailBtn.reveal {
+}
 
+#email {
+  margin-top: 10px;
+}
 
+.encoded-email {
+  color: #000000;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  padding: 5px;
+  background-color: #ffffff;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/*Social Media*/
 .social-media {
   margin-top: 2vh;
 }
@@ -491,12 +483,10 @@ font-size: 5vh;
 }
 .overlay{
   background-color: rgb(255 255 255 / 24%);
-  border-radius: 5vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  padding:2vh;
 }
 .label{
 	font-size:4vh;

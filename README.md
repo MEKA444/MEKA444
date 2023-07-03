@@ -42,7 +42,8 @@
         <h1 class="white-txt">Demicca Ze'ev</h1>
 		<h2 class="black-txt" >Graphic Designer</h2>
 	</div>
-        <a class="midText cta-button" href="#portfolio" target="_blank" >View Portfolio</a>
+	     <button id="portfolioBTN" class="midText cta-button" href="#portfolio" target="_blank" >View Portfolio</button>
+  
     </div>
   </section>
 

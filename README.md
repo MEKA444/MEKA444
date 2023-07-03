@@ -149,16 +149,14 @@
 	</div>
 </div>
 
-  <div class="contact-form">
-    <form class="midText">
-      <input type="text" name="name" placeholder="Your Name">
-      <input type="email" name="email" placeholder="Your Email">
-      <textarea name="message" placeholder="Your Message"></textarea>
-      <button class="btn-contact cta-button" type="submit">Send Message</button>
-    </form>
-  </div>
-<div id="success-message" class="black-txt HeadText"></div>
+<!--Contact button-->
+<section id="contact">
+  <button id="toggleEmailBtn" class="HeadText btn-contact cta-button">Reveal Email</button>
+  <p id="email" class="midText" style="display: none;"><span class="encoded-email"></span></p>
+</section>
 
+
+<!--Social-->
 <div class="social-media">
   <div class="overlay">
     <span class="lilac-txt midText label">MEKA Network </span>

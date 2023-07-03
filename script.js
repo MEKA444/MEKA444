@@ -173,18 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
   cursor.style.visibility = 'hidden';
   document.body.style.cursor = 'none';
 });
-
-
-//Glimer effect on Text name
-function createShineEffect() {
-            const textElement = document.querySelector('.hero h1');
-            const shineElement = document.createElement('span');
-            shineElement.classList.add('shine-effect');
-
-            textElement.appendChild(shineElement);
-        }
-
-        createShineEffect();
 		
 // Blog functionality
 const blogCounter = document.querySelector('.blog-counter');
@@ -260,87 +248,23 @@ rightArrow.addEventListener('click', navigateToNextBlog);
 // Initialize the first blog
 showBlog(currentBlog);
 
-//email
-// Form Validation
-const contactForm = document.querySelector('.contact-form');
-const nameInput = document.querySelector('input[name="name"]');
-const emailInput = document.querySelector('input[name="email"]');
-const messageInput = document.querySelector('textarea[name="message"]');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  if (validateForm()) {
-    sendEmail();
-    contactForm.reset();
+/*Email*/
+document.getElementById('toggleEmailBtn').addEventListener('click', function() {
+  var emailElement = document.getElementById('email');
+  var encodedEmailElement = emailElement.querySelector('.encoded-email');
+  
+  if (emailElement.style.display === 'none') {
+    // Email is hidden, reveal it
+    var email = 'd3micca@gmail.com';
+    encodedEmailElement.innerHTML = '';
+    encodedEmailElement.appendChild(document.createTextNode(unescape('%64%33%6d%69%63%63%61%40%67%6d%61%69%6c%2e%63%6f%6d'))); // 'd3micca@gmail.com' encoded
+    emailElement.style.display = 'block';
+    document.getElementById('toggleEmailBtn').textContent = 'Hide Email';
+  } else {
+    // Email is visible, hide it
+    emailElement.style.display = 'none';
+    document.getElementById('toggleEmailBtn').textContent = 'Reveal Email';
   }
 });
 
-function validateForm() {
-  let isValid = true;
-
-  if (nameInput.value.trim() === '') {
-    isValid = false;
-    displayError(nameInput, 'Please enter your name');
-  } else {
-    removeError(nameInput);
-  }
-
-  if (emailInput.value.trim() === '') {
-    isValid = false;
-    displayError(emailInput, 'Please enter your email');
-  } else if (!isValidEmail(emailInput.value.trim())) {
-    isValid = false;
-    displayError(emailInput, 'Please enter a valid email address');
-  } else {
-    removeError(emailInput);
-  }
-
-  if (messageInput.value.trim() === '') {
-    isValid = false;
-    displayError(messageInput, 'Please enter your message');
-  } else {
-    removeError(messageInput);
-  }
-
-  return isValid;
-}
-
-function displayError(input, message) {
-  const formControl = input.parentElement;
-  const errorElement = formControl.querySelector('.error-message');
-  errorElement.textContent = message;
-  formControl.classList.add('error');
-}
-
-function removeError(input) {
-  const formControl = input.parentElement;
-  formControl.classList.remove('error');
-}
-
-function isValidEmail(email) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-}
-//send email
-function sendEmail() {
-  emailjs.send('service_oaqqh7l', 'MEKAEmailGateway', {
-    from_name: nameInput.value,
-    from_email: emailInput.value,
-    message: messageInput.value,
-  })
-    .then((response) => {
-      console.log('Email sent successfully:', response.status, response.text);
-      displaySuccessMessage();
-    })
-    .catch((error) => {
-      console.error('Error sending email:', error);
-      // Add any error handling or messages you want here
-    });
-}
-//message
-function displaySuccessMessage() {
-  const successMessage = document.getElementById('success-message');
-  successMessage.textContent = 'Email sent successfully!';
-  // You can further style or animate the success message if desired
-}
